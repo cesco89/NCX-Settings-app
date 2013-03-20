@@ -31,22 +31,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="38dp" />
 
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/switch1"
-        android:layout_below="@+id/switch1"
-        android:layout_marginTop="26dp" />
-
-    <Switch
-        android:id="@+id/switch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/switch2"
-        android:layout_below="@+id/switch2"
-        android:layout_marginTop="31dp" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -55,14 +39,6 @@
         android:layout_alignTop="@+id/switch3"
         android:paddingLeft="10dp"
         android:text="@string/smart" />
-
-    <Switch
-        android:id="@+id/switch4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/switch3"
-        android:layout_below="@+id/switch3"
-        android:layout_marginTop="32dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -73,20 +49,62 @@
         android:paddingLeft="10dp"
         android:text="@string/smartagr" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignTop="@+id/switch6"
+        android:paddingLeft="10dp"
+        android:text="@string/audiomin" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch1"
+        android:layout_below="@+id/switch1"
+        android:layout_marginTop="14dp" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch2"
+        android:layout_below="@+id/switch2"
+        android:layout_marginTop="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="401dp"
+        android:layout_height="81dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ncx" />
+
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch3"
+        android:layout_below="@+id/switch3"
+        android:layout_marginTop="16dp" />
+
     <Switch
         android:id="@+id/switch5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/switch4"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="29dp" />
+        android:layout_centerVertical="true" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/switch5"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/switch5"
+        android:layout_marginBottom="10dp"
         android:paddingLeft="10dp"
         android:text="@string/usercap" />
 
@@ -94,27 +112,19 @@
         android:id="@+id/switch6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:entries="@array/frequencies"
+        android:prompt="@string/choosefreq"
         android:layout_alignLeft="@+id/switch5"
         android:layout_below="@+id/switch5"
-        android:layout_marginTop="34dp" />
+        android:layout_marginTop="49dp" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="150dp"
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignTop="@+id/switch6"
-        android:paddingLeft="10dp"
-        android:text="@string/audiomin" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="401dp"
-        android:layout_height="81dp"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:src="@drawable/ncx" />
+        android:layout_alignTop="@+id/switch5"
+        android:entries="@array/frequencies"
+        android:prompt="@string/choosefreq" />
 
 </RelativeLayout>

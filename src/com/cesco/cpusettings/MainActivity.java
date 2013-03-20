@@ -1,14 +1,21 @@
 package com.cesco.cpusettings;
 
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.cesco.cpusettings.util.*;
 
-public class MainActivity extends Activity implements OnCheckedChangeListener {
+public class MainActivity extends Activity implements OnCheckedChangeListener, OnItemSelectedListener {
 	
 	public Switch switch1;
 	public Switch switch2;
@@ -16,6 +23,11 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 	public Switch switch4;
 	public Switch switch5;
 	public Switch switch6;
+	public SeekBar seekBar1;
+	public TextView userfreq;
+	public Spinner spinner1;
+	public int position;
+	public String value;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +52,26 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 		Switch switch6 = (Switch) findViewById(R.id.switch6);
 		switch6.setOnCheckedChangeListener(this);
 		
+		Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
+		spinner1.setOnItemSelectedListener(this);
+		
 }
+	@Override
+	public void onItemSelected(AdapterView<?> parent, View v, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		
+		//Toast.makeText(parent.getContext(), "frequency selected : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+		value = parent.getItemAtPosition(position).toString();
+	}
 
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -105,13 +135,14 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 		case R.id.switch5:
 			if (isChecked){
 				CMDProcessor cmd = new CMDProcessor();
-		    	   cmd.su.runWaitFor("busybox echo '1200000' > /sys/module/cpu_tegra/parameters/cpu_user_cap");
-				Toast.makeText(this, "CPU User Cap 1.2GHz " , Toast.LENGTH_SHORT).show();
+		    		cmd.su.runWaitFor("busybox echo '"+value+"' > /sys/module/cpu_tegra/parameters/cpu_user_cap");
+				Toast.makeText(this,"CPU User Cap @" +value+"Hz" ,Toast.LENGTH_SHORT).show();
+				
 			}
 			else {
 				CMDProcessor cmd = new CMDProcessor();
-		    	   cmd.su.runWaitFor("busybox echo '1400000' > /sys/module/cpu_tegra/parameters/cpu_user_cap");
-				Toast.makeText(this, "CPU User Cap 1.4GHz!! " , Toast.LENGTH_SHORT).show();
+		    		cmd.su.runWaitFor("busybox echo '1200000' > /sys/module/cpu_tegra/parameters/cpu_user_cap");
+				Toast.makeText(this, "CPU User Cap back to 1.2GHz " , Toast.LENGTH_SHORT).show();
 			}
 			break;
 		case R.id.switch6:
@@ -126,13 +157,12 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 				Toast.makeText(this, "Audio Min freq. 102MHz!! " , Toast.LENGTH_SHORT).show();
 			};
 		break;
+			
 		}
-		
 			
 		
 	}
-
 		// TODO Auto-generated method stub
-		
+	
 
 }

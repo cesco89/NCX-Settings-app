@@ -7,7 +7,15 @@
     <string name="min_OC">Enable GPU OC Min freq.</string>
     <string name="smart">Enable Smartdimmer</string>
     <string name="smartagr">Change Smartdimmer aggressiveness</string>
-    <string name="usercap">Limit Max freq. to 1.2Ghz</string>
+    <string name="usercap">CPU User Cap (Hz)</string>
     <string name="audiomin">Increase audio Min freq to 204MHz</string>
-
+	<string name="choosefreq">Choose frequency</string>
+	<string-array name="frequencies">
+        <item>1000000</item>
+        <item>1100000</item>
+        <item>1200000</item>
+        <item>1300000</item>
+        <item>1400000</item>
+        <item>1500000</item>
+    </string-array>
 </resources>
