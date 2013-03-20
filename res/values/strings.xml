@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NCX Settings</string>
+    <string name="menu_settings">Settings</string>
+    <string name="switch_text">Enable GPU OC Max freq.</string>
+    <string name="min_OC">Enable GPU OC Min freq.</string>
+    <string name="smart">Enable Smartdimmer</string>
+    <string name="smartagr">Change Smartdimmer aggressiveness</string>
+    <string name="usercap">Limit Max freq. to 1.2Ghz</string>
+    <string name="audiomin">Increase audio Min freq to 204MHz</string>
+
+</resources>
